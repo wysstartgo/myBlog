@@ -1,0 +1,21 @@
+{
+  "name": "myBlog-front",
+  "version": "1.0.0",
+  "description": "My amazing Nuxt.js project",
+  "author": "wuys",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "element-ui": "^2.13.0",
+    "nuxt": "^2.0.0",
+    "vue-cookie": "^1.1.4",
+    "vue": "latest"
+  },
+  "devDependencies": {}
+}
