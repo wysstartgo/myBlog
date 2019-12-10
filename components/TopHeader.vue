@@ -1,27 +1,27 @@
 <template>
 <header class="appHead">
-  <el-row class="nav" :gutter="0">
-    <el-col class="navBar" :xs="22" :sm="22" :md="22" :lg="16">
+  <el-row class="myNav" :gutter="0">
+    <el-col class="navLogo" :xs="1" :sm="1" :md="1" :lg="1">
       <div class="logoDiv">
         <a href="/"><img src="@/assets/logo.png" alt></a>
       </div>
-      <div class="leftMenu">
+    </el-col>
+    <el-col class="navName hidden-sm-and-down" :xs="2" :sm="4" :md="4" :lg="2" >
+       点 滴 分 享
+    </el-col>
+    <el-col class="navBar" :xs="19" :sm="9" :md="13" :lg="17">
+      <div class="navMenu">
         <el-menu :router=true menu-trigger="click" active-text-color="#5FB878" :default-active="activeIndex"
                  mode="horizontal">
           <el-menu-item index="/">技术</el-menu-item>
-          <el-menu-item>java</el-menu-item>
-          <el-menu-item>唐诗</el-menu-item>
-          <el-menu-item>宋词</el-menu-item> <el-menu-item>java</el-menu-item>
-          <el-menu-item>唐诗</el-menu-item>
-          <el-menu-item>宋词</el-menu-item> <el-menu-item>java</el-menu-item>
-          <el-menu-item>唐诗</el-menu-item>
-          <el-menu-item>宋词</el-menu-item> <el-menu-item>java</el-menu-item>
+          <el-menu-item class="hidden-sm-and-down">java</el-menu-item>
           <el-menu-item>唐诗</el-menu-item>
           <el-menu-item>宋词</el-menu-item>
+          <el-menu-item class="hidden-sm-and-down">java</el-menu-item>
         </el-menu>
       </div>
     </el-col>
-    <el-col class="rightMenu" :xs="2" :sm="2" :md="2" :lg="8">
+    <el-col class="rightMenu hidden-sm-and-down" :xs="2" :sm="10" :md="6" :lg="4" >
       <div v-if="!userinfo">
         <a href="/user/login">
           <el-button
@@ -55,12 +55,14 @@
 </template>
 
 <script>
+  import 'element-ui/lib/theme-chalk/display.css';
+
     export default {
       name: "TopHeader",
       data() {
         return {
           activeIndex: '/',
-          userinfo: {}
+          userinfo: ''
         };
       },
       methods: {
@@ -68,22 +70,45 @@
           console.log(tab, event);
         },
         logout() {
-          
+
         }
       }
     }
 </script>
 
 <style scoped>
-.navBar {
-  display: flex;
+/*.myNav:after {*/
+/*  content: "";*/
+/*  display: block;*/
+/*  clear: both;*/
+/*}*/
+.myNav {
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  background-color: #fafafa;
+  -webkit-box-shadow: 0 2px 10px 0 rgba(0,0,0,.1), 0 1px rgba(66,66,66,.1);
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,.1), 0 1px rgba(66,66,66,.1);
+  z-index: 99999;
 }
-.leftMenu {
-  padding-left: 50px;
+.logoDiv {
+  text-align: center;
 }
 .logoDiv img{
   width: 100%;
-  max-width: 100px;
+  max-width: 150px;
+}
+.rightMenu {
+  line-height: 60px;
+}
+.navName {
+  line-height: 60px;
+  text-align: center;
+  font-family: 华文行楷;
+  padding: 0 5px;
 }
 .el-menu.el-menu--horizontal{
   border-bottom: none;
